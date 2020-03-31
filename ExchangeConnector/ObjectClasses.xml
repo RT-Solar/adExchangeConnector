@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+====================
+ DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ 
+ Copyright 2008-2009 Sun Microsystems, Inc. All rights reserved.     
+ 
+ The contents of this file are subject to the terms of the Common Development 
+ and Distribution License("CDDL") (the "License").  You may not use this file 
+ except in compliance with the License.
+ 
+ You can obtain a copy of the License at 
+ http://IdentityConnectors.dev.java.net/legal/license.txt
+ See the License for the specific language governing permissions and limitations 
+ under the License. 
+ 
+ When distributing the Covered Code, include this CDDL Header Notice in each file
+ and include the License file at identityconnectors/legal/license.txt.
+ If applicable, add the following below this CDDL Header, with the fields 
+ enclosed by brackets [] replaced by your own identifying information: 
+ "Portions Copyrighted [year] [name of copyright owner]"
+====================
+-->
+<List>
+
+  <!-- Account (extra attributes for Exchange) -->
+  <ObjectClassInfo container="false" type="__ACCOUNT__">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="Alias" type="String" />
+      <AttributeInfo name="PrimarySmtpAddress" type="String" />
+      <!-- Beware, for AD-only accounts please use 'mail' attribute; for Exchange accounts use PrimarySmtpAddress! -->
+      <AttributeInfo name="EmailAddresses" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExternalEmailAddress" type="String" />
+      <AttributeInfo name="RecipientType" type="String">
+      </AttributeInfo>
+      <AttributeInfo name="DeliverToMailboxAndForward" type="Boolean" />
+      <AttributeInfo name="ForwardingSmtpAddress" type="String" />
+      <AttributeInfo name="CustomAttribute1" type="String" />
+      <AttributeInfo name="CustomAttribute2" type="String" />
+      <AttributeInfo name="CustomAttribute3" type="String" />
+      <AttributeInfo name="CustomAttribute4" type="String" />
+      <AttributeInfo name="CustomAttribute5" type="String" />
+      <AttributeInfo name="CustomAttribute6" type="String" />
+      <AttributeInfo name="CustomAttribute7" type="String" />
+      <AttributeInfo name="CustomAttribute8" type="String" />
+      <AttributeInfo name="CustomAttribute9" type="String" />
+      <AttributeInfo name="CustomAttribute10" type="String" />
+      <AttributeInfo name="CustomAttribute11" type="String" />
+      <AttributeInfo name="CustomAttribute12" type="String" />
+      <AttributeInfo name="CustomAttribute13" type="String" />
+      <AttributeInfo name="CustomAttribute14" type="String" />
+      <AttributeInfo name="CustomAttribute15" type="String" />
+      <AttributeInfo name="ExtensionCustomAttribute1" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute2" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute3" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute4" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute5" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="HiddenFromAddressListsEnabled" type="Boolean" />
+      <AttributeInfo name="EmailAddressPolicyEnabled" type="Boolean" />
+      <AttributeInfo name="msExchRecipientDisplayType" type="String">
+        <AttributeInfoFlag value="NOT_CREATABLE"/>
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="msExchRecipientTypeDetails" type="String">
+        <AttributeInfoFlag value="NOT_CREATABLE"/>
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="Database" type="String">
+      </AttributeInfo>
+      <AttributeInfo name="OfflineAddressBook" type="String">
+      </AttributeInfo>
+      <AttributeInfo name="AddressBookPolicy" type="String">
+      </AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo>
+  
+  <!-- AcceptedDomain -->
+  <ObjectClassInfo container="false" type="AcceptedDomain">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="DomainName" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="DomainType" type="String"></AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo>
+
+  <!-- GlobalAddressList -->
+  <ObjectClassInfo container="false" type="GlobalAddressList">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="RecipientFilter" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo>
+
+  <!-- AddressList -->
+  <ObjectClassInfo container="false" type="AddressList">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="RecipientFilter" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo>
+
+  <!-- OfflineAddressBook -->
+  <ObjectClassInfo container="false" type="OfflineAddressBook">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="AddressLists" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo>
+
+  <!-- AddressBookPolicy -->
+  <ObjectClassInfo container="false" type="AddressBookPolicy">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="AddressLists" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="GlobalAddressList" type="String"></AttributeInfo>
+      <AttributeInfo name="OfflineAddressBook" type="String"></AttributeInfo>
+      <AttributeInfo name="RoomList" type="String"></AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo>
+
+  <!-- DistributionGroup -->
+  <ObjectClassInfo container="false" type="DistributionGroup">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="DisplayName" type="String"></AttributeInfo>
+      <AttributeInfo name="Type" type="String">
+        <AttributeInfoFlag value="NOT_READABLE"/>
+        <AttributeInfoFlag value="NOT_RETURNED_BY_DEFAULT"/>
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="RecipientType" type="String">      <!-- Type is used to specify group type when creating it; RecipientType and GroupType to see the actual type -->
+        <AttributeInfoFlag value="NOT_CREATABLE"/>
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="GroupType" type="String">          <!-- only unparsed, descriptive information; processing original type (GroupTypeFlags) would be more complicated -->
+        <AttributeInfoFlag value="NOT_CREATABLE"/>
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="PrimarySmtpAddress" type="String"></AttributeInfo>
+      <AttributeInfo name="Members" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+        <AttributeInfoFlag value="NOT_READABLE"/>
+        <AttributeInfoFlag value="NOT_RETURNED_BY_DEFAULT"/>
+      </AttributeInfo>
+      <AttributeInfo name="OrganizationalUnit" type="String">
+      </AttributeInfo>
+      <AttributeInfo name="HiddenFromAddressListsEnabled" type="Boolean"></AttributeInfo>
+      <AttributeInfo name="BypassSecurityGroupManagerCheck" type="Boolean">
+        <AttributeInfoFlag value="NOT_READABLE"/>
+        <AttributeInfoFlag value="NOT_RETURNED_BY_DEFAULT"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute1" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute2" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute3" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute4" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute5" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute6" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute7" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute8" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute9" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute10" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute11" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute12" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute13" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute14" type="String"></AttributeInfo>
+      <AttributeInfo name="CustomAttribute15" type="String"></AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute1" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute2" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute3" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute4" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExtensionCustomAttribute5" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+
+    </AttributeInfos>
+  </ObjectClassInfo>
+
+  <!-- EmailAddressPolicy -->
+  <ObjectClassInfo container="false" type="EmailAddressPolicy">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="RecipientContainer" type="String"></AttributeInfo>
+      <AttributeInfo name="IncludedRecipients" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+        <!-- todo verify if it really can be multivalued -->
+      </AttributeInfo>
+      <AttributeInfo name="ConditionalCustomAttribute1" type="String"></AttributeInfo>
+      <!-- todo also other custom attributes -->
+      <AttributeInfo name="EnabledEmailAddressTemplates" type="String">
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="EnabledPrimarySMTPAddressTemplate" type="String"></AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo>
+
+  <!-- Mailuser object class 
+  <ObjectClassInfo container="false" type="mailuser">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExchangeUserAccountControl" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExternalEmailAddress" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+        <AttributeInfoFlag value="MULTIVALUED"/>
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="UsePreferMessageFormat" type="Boolean">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="MessageFormat" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="MessageBodyFormat" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="MacAttachmentFormat" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="ProtocolSettings" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="RecipientLimits" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="SamAccountName" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="UseMapiRichTextFormat" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="UserPrincipalName" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="Extensions" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="AcceptMessagesOnlyFrom" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="AcceptMessagesOnlyFromDLMembers" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="AddressListMembership" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="Alias" type="String" creatable="true">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="OrganizationalUnit" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute1" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute2" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute3" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute4" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute5" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute6" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute7" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute8" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute9" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute10" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute11" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute12" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute13" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute14" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="CustomAttribute15" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="DisplayName" type="String" creatable="true">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="EmailAddresses" type="String" creatable="true">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="GrantSendOnBehalfTo" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="HiddenFromAddressListsEnabled" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="LegacyExchangeDN" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="MaxSendSize" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="MaxReceiveSize" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="PoliciesIncluded" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="PoliciesExcluded" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="EmailAddressPolicyEnabled" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="PrimarySmtpAddress" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="RecipientType" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="RecipientTypeDetails" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="RejectMessagesFrom" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="RejectMessagesFromDLMembers" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="RequireSenderAuthenticationEnabled" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="SimpleDisplayName" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="UMDtmfMap" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="WindowsEmailAddress" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="IsValid" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="OriginatingServer" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="ExchangeVersion" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="Name" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="DistinguishedName" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="Identity" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="Identity" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="Guid" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="ObjectCategory" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="ObjectClass" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+        <AttributeInfoFlag value="MULTIVALUED"/>
+      </AttributeInfo>
+      <AttributeInfo name="WhenChanged" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+      <AttributeInfo name="WhenCreated" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo> -->
+  <!-- Mailbox object class
+  <ObjectClassInfo container="false" name="mailbox">
+    <AttributeInfos>
+      <AttributeInfo name="__NAME__" type="String">
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+        <AttributeInfoFlag value="REQUIRED"/>
+      </AttributeInfo>
+      <AttributeInfo name="Database" type="String">
+        <AttributeInfoFlag value="REQUIRED"/>
+        <AttributeInfoFlag value="NOT_UPDATEABLE"/>
+      </AttributeInfo>
+    </AttributeInfos>
+  </ObjectClassInfo> -->
+</List>
